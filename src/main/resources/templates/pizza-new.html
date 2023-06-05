@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body th:object="${pizza}">
+	<h1>Crea la tua pizza: </h1>
+	<form method="post">
+		<label>Nome</label>
+		<input type="text" name="name" th:value=*{name}>
+		<label 
+			style="color: red"
+			th:if="${errors != null && errors.hasFieldErrors('name')}">
+			
+			[[ ${errors.getFieldError('name').defaultMessage} ]]
+		 </label>
+		<br>
+		<label>Descrizione</label>
+		<input type="text" name="description" th:value="*{description}">
+		<label 
+			style="color: red"
+			th:if="${errors != null && errors.hasFieldErrors('name')}">
+			
+			[[ ${errors.getFieldError('description').defaultMessage} ]]
+		 </label>
+		<br>
+		<label>Immagine</label>
+		<input type="text" name="imgUrl" th:value="*{imgUrl}">
+		<label 
+			style="color: red"
+			th:if="${errors != null && errors.hasFieldErrors('name')}">
+			
+			[[ ${errors.getFieldError('imgUrl').defaultMessage} ]]
+		 </label>
+		<br>
+		<label>Prezzo</label>
+		<input type="number" name="price" th:value="*{price}">
+		<label 
+			style="color: red"
+			th:if="${errors != null && errors.hasFieldErrors('name')}">
+			
+			[[ ${errors.getFieldError('price').defaultMessage} ]]
+		 </label>
+		<br>
+		<input type="submit" value="crea">
+	</form>
+</body>
+</html>
