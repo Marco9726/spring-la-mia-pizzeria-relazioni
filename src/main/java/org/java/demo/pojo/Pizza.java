@@ -1,9 +1,12 @@
 package org.java.demo.pojo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,6 +30,9 @@ public class Pizza {
 	@Min(0)
 	@NotNull
 	private Integer price;
+	
+	@OneToMany(mappedBy = "pizza")
+	private List<Deal> deals;
 	
 	public Pizza () { }
 	
