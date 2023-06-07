@@ -8,6 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Deal {
@@ -15,11 +20,15 @@ public class Deal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	@FutureOrPresent(message = "La data non può essere nel passato")
 	private LocalDate dateStart;
+	@FutureOrPresent(message = "La data non può essere nel passato")
 	private LocalDate dateEnd;
-	
+	@NotBlank(message = "Il nome non può essere null")
 	private String title;
+	@NotNull
+	@Min(value = 1, message = "la percentuale dello sconto deve essere almeno di 1")
+	@Max(value = 100, message = "la percentuale dello sconto può essere al massimo 100")
 	private Integer discount;
 	
 	@ManyToOne

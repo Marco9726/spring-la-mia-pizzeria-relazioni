@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Deals:</h1>
+	<a href="/deals/create">CREATE NEW DEAL</a>
+	<ul>
+		<li
+			th:each="deal : ${deals}"
+			th:object="${deal}"
+		>
+			[[ *{title} ]] - [[ *{discount} ]]&#37;
+		</li>
+	</ul>
+</body>
+</html>

@@ -13,7 +13,7 @@ public class DealService {
 	@Autowired
 	private DealRepo dealRepo;
 	
-	private List<Deal> findAll() {
+	public List<Deal> findAll() {
 		
 		return dealRepo.findAll();
 	}
