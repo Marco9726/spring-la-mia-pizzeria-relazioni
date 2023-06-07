@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -14,7 +15,8 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 public class Pizza {
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -33,6 +35,9 @@ public class Pizza {
 	
 	@OneToMany(mappedBy = "pizza")
 	private List<Deal> deals;
+	
+	@ManyToMany
+	private List<Ingredient> ingredients;
 	
 	public Pizza () { }
 	
@@ -83,6 +88,22 @@ public class Pizza {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	
+	public List<Deal> getDeals() {
+		return deals;
+	}
+	
+	public void setDeals(List<Deal> deals) {
+		this.deals = deals;
+	}
+	
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
 	}
 	
 	
