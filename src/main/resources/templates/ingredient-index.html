@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Ingredients:</h1>
+	<a href="/ingredients/create">CREATE NEW INGREDIENT</a>
+	<ul>
+		<li
+			th:each="ingredient : ${ingredients}"
+			th:object="${ingredient}"
+		>
+			[[ *{name} ]] 
+			<a th:href="@{/ingredients/delete/{id} (id=*{id})}">Delete</a>
+		</li>
+	</ul>
+</body>
+</html>

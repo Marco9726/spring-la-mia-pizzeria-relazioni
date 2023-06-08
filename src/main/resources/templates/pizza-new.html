@@ -43,6 +43,15 @@
 			[[ ${errors.getFieldError('price').defaultMessage} ]]
 		 </label>
 		<br>
+		<label>Ingredienti: </label>
+		<div
+			th:each="ing : ${ingredients}"
+			th:object="${ing}"
+		>
+			<label h:id="${'ing-' + ing.id}" >[[ *{name} ]]</label>
+			<input th:id="${'ing-' + ing.id}" type="checkbox" name="ingrediente" th:value="*{id}" >
+			<br>
+		</div>
 		<input type="submit" value="crea">
 	</form>
 </body>

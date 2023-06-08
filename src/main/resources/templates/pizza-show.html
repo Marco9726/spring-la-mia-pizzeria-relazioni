@@ -8,6 +8,11 @@
 	<h1>[[ *{name} ]]</h1>
 	<h3>[[ *{description} ]]</h3>
 	<h5>[[ *{price} ]]&euro;</h5>
-	
+	<h3> Ingredienti:</h3>
+	<ul>
+		<li th:each="ing : *{ingredients}" th:object="${ing}">
+			[[ *{name} ]]
+		</li>
+	</ul>
 </body>
 </html>

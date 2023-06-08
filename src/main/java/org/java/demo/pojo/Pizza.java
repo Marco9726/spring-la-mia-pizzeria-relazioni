@@ -1,5 +1,6 @@
 package org.java.demo.pojo;
 
+import java.util.Arrays;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -41,12 +42,13 @@ public class Pizza {
 	
 	public Pizza () { }
 	
-	public Pizza(String name, String description, String imgUrl, Integer price) {
+	public Pizza(String name, String description, String imgUrl, Integer price, Ingredient...ingredients ) {
 		
 		setName(name);
 		setDescription(description);
 		setImgUrl(imgUrl);
 		setPrice(price);
+		setIngredients(ingredients);
 		
 	}
 
@@ -104,6 +106,21 @@ public class Pizza {
 	
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
+	}
+	
+	public void setIngredients(Ingredient[] ingredients) {
+		
+		setIngredients(Arrays.asList(ingredients));
+	}
+	
+	public void addIngredient(Ingredient ingredient) {
+		
+		getIngredients().add(ingredient);
+	}
+	
+	public void removeIngredient(Ingredient ingredient) {
+		
+		getIngredients().remove(ingredient);
 	}
 	
 	

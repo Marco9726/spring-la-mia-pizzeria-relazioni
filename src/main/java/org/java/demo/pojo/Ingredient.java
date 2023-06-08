@@ -57,4 +57,14 @@ public class Ingredient {
 		// TODO Auto-generated method stub
 		return getId() + "-" + getName();
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(!(obj instanceof Ingredient)) return false;
+		
+		Ingredient objIngr = (Ingredient) obj;
+		
+		return getId() == objIngr.getId();
+	}
 }
